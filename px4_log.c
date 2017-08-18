@@ -124,7 +124,7 @@ void message_update_poll(void)
 	memset(&container, 0, sizeof(container));
 	unsigned i = 0;
 	hrt_abstime start_time = hrt_absolute_time();
-	while(i < 1) {
+	while(i < 10) {
 		orb_check(sub,&updated);
 		if (i == 0) { updated = true; } else { usleep(500); }
 		if (updated) {

@@ -1,9 +1,12 @@
 #include <string.h>
-#include <pthread>
+#include <pthread.h>
+#include <sys/types.h>
+#include <unistd.h>
 #include "uORBManager.hpp"
 #include "uORB.h"
 #include "uORBCommon.hpp"
 #include "px4_log.h"
+
 
 extern "C" { __EXPORT int uorb_main(int argc, char *argv[]); }
 
@@ -13,11 +16,13 @@ static void usage()
 	//PX4_INFO("Usage: uorb 'start', 'status'");
 }
 
-void thread(void)
+void * kpthread(void * arg)
 {
 	int i;
 	for(i=0;i<3;i++)
-	printf("This is a pthread.n");
+	printf("This is a pthread\n");
+	message_update_poll();
+	printf("This is a pthread\n");
 }
 
 int
@@ -54,11 +59,32 @@ main(int argc, char *argv[])
 		}
 		printf("11111111111111");
 
-		px4_log_initialize();
+		// px4_log_initialize();
 
-		message_update_poll();
+		if(fork() == 0){
+			printf("This is a first sun process\n");
+			message_update_poll();
+		}else{
+			if(fork() == 0){
+				printf("This is a second sun process\n");
+				px4_log_initialize();
+			}else{
+				printf("This is a farter pthread\n");
+			}			
+		}
 
-		return OK;
+		// pthread_t id;
+		// int i,ret;
+		// ret=pthread_create(&id,NULL,kpthread,(NULL));
+		// if(ret!=0){
+		// 	printf ("Create pthread error!\n");
+		// 	exit (1);
+		// }
+		// for(i=0;i<3;i++)
+		// 	printf("This is the main process\n");
+		// pthread_join(id,NULL);
+
+		// return OK;
 	}
 
 	/*

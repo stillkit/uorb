@@ -32,27 +32,52 @@ CMakeFiles/orb.dir/sq_addafter.c.o: ../sq_addafter.c
 CMakeFiles/orb.dir/sq_addlast.c.o: ../queue.h
 CMakeFiles/orb.dir/sq_addlast.c.o: ../sq_addlast.c
 
+CMakeFiles/orb.dir/cpuload.cpp.o: ../cpuload.cpp
+CMakeFiles/orb.dir/cpuload.cpp.o: ../cpuload.h
+CMakeFiles/orb.dir/cpuload.cpp.o: ../drv_hrt.h
+CMakeFiles/orb.dir/cpuload.cpp.o: ../drv_orb_dev.h
+CMakeFiles/orb.dir/cpuload.cpp.o: ../px4_config.h
+CMakeFiles/orb.dir/cpuload.cpp.o: ../px4_defines.h
+CMakeFiles/orb.dir/cpuload.cpp.o: ../px4_log.h
+CMakeFiles/orb.dir/cpuload.cpp.o: ../px4_time.h
+CMakeFiles/orb.dir/cpuload.cpp.o: ../px4_workqueue.h
+CMakeFiles/orb.dir/cpuload.cpp.o: ../queue.h
+CMakeFiles/orb.dir/cpuload.cpp.o: ../uORB.h
+CMakeFiles/orb.dir/cpuload.cpp.o: ../visibility.h
+
 CMakeFiles/orb.dir/device_posix.cpp.o: ../device_posix.cpp
+CMakeFiles/orb.dir/device_posix.cpp.o: ../drv_hrt.h
 CMakeFiles/orb.dir/device_posix.cpp.o: ../px4_defines.h
 CMakeFiles/orb.dir/device_posix.cpp.o: ../px4_log.h
 CMakeFiles/orb.dir/device_posix.cpp.o: ../px4_posix.h
+CMakeFiles/orb.dir/device_posix.cpp.o: ../px4_time.h
+CMakeFiles/orb.dir/device_posix.cpp.o: ../px4_workqueue.h
+CMakeFiles/orb.dir/device_posix.cpp.o: ../queue.h
 CMakeFiles/orb.dir/device_posix.cpp.o: ../vdev.h
 CMakeFiles/orb.dir/device_posix.cpp.o: ../visibility.h
 
+CMakeFiles/orb.dir/log_message.cpp.o: ../drv_hrt.h
 CMakeFiles/orb.dir/log_message.cpp.o: ../drv_orb_dev.h
 CMakeFiles/orb.dir/log_message.cpp.o: ../log_message.cpp
 CMakeFiles/orb.dir/log_message.cpp.o: ../log_message.h
 CMakeFiles/orb.dir/log_message.cpp.o: ../px4_config.h
 CMakeFiles/orb.dir/log_message.cpp.o: ../px4_defines.h
 CMakeFiles/orb.dir/log_message.cpp.o: ../px4_log.h
+CMakeFiles/orb.dir/log_message.cpp.o: ../px4_time.h
+CMakeFiles/orb.dir/log_message.cpp.o: ../px4_workqueue.h
+CMakeFiles/orb.dir/log_message.cpp.o: ../queue.h
 CMakeFiles/orb.dir/log_message.cpp.o: ../uORB.h
 CMakeFiles/orb.dir/log_message.cpp.o: ../visibility.h
 
+CMakeFiles/orb.dir/px4_posix_tasks.cpp.o: ../drv_hrt.h
 CMakeFiles/orb.dir/px4_posix_tasks.cpp.o: ../px4_defines.h
 CMakeFiles/orb.dir/px4_posix_tasks.cpp.o: ../px4_log.h
 CMakeFiles/orb.dir/px4_posix_tasks.cpp.o: ../px4_posix.h
 CMakeFiles/orb.dir/px4_posix_tasks.cpp.o: ../px4_posix_tasks.cpp
 CMakeFiles/orb.dir/px4_posix_tasks.cpp.o: ../px4_tasks.h
+CMakeFiles/orb.dir/px4_posix_tasks.cpp.o: ../px4_time.h
+CMakeFiles/orb.dir/px4_posix_tasks.cpp.o: ../px4_workqueue.h
+CMakeFiles/orb.dir/px4_posix_tasks.cpp.o: ../queue.h
 CMakeFiles/orb.dir/px4_posix_tasks.cpp.o: ../visibility.h
 
 CMakeFiles/orb.dir/uORB.cpp.o: ../drv_hrt.h
@@ -90,6 +115,7 @@ CMakeFiles/orb.dir/uORBDevices_posix.cpp.o: ../uORBUtils.hpp
 CMakeFiles/orb.dir/uORBDevices_posix.cpp.o: ../vdev.h
 CMakeFiles/orb.dir/uORBDevices_posix.cpp.o: ../visibility.h
 
+CMakeFiles/orb.dir/uORBMain.cpp.o: ../cpuload.h
 CMakeFiles/orb.dir/uORBMain.cpp.o: ../drv_hrt.h
 CMakeFiles/orb.dir/uORBMain.cpp.o: ../drv_orb_dev.h
 CMakeFiles/orb.dir/uORBMain.cpp.o: ../px4_defines.h
@@ -126,10 +152,14 @@ CMakeFiles/orb.dir/uORBManager.cpp.o: ../uORBUtils.hpp
 CMakeFiles/orb.dir/uORBManager.cpp.o: ../vdev.h
 CMakeFiles/orb.dir/uORBManager.cpp.o: ../visibility.h
 
+CMakeFiles/orb.dir/uORBUtils.cpp.o: ../drv_hrt.h
 CMakeFiles/orb.dir/uORBUtils.cpp.o: ../drv_orb_dev.h
 CMakeFiles/orb.dir/uORBUtils.cpp.o: ../px4_defines.h
 CMakeFiles/orb.dir/uORBUtils.cpp.o: ../px4_log.h
 CMakeFiles/orb.dir/uORBUtils.cpp.o: ../px4_posix.h
+CMakeFiles/orb.dir/uORBUtils.cpp.o: ../px4_time.h
+CMakeFiles/orb.dir/uORBUtils.cpp.o: ../px4_workqueue.h
+CMakeFiles/orb.dir/uORBUtils.cpp.o: ../queue.h
 CMakeFiles/orb.dir/uORBUtils.cpp.o: ../uORB.h
 CMakeFiles/orb.dir/uORBUtils.cpp.o: ../uORBCommon.hpp
 CMakeFiles/orb.dir/uORBUtils.cpp.o: ../uORBUtils.cpp
@@ -137,26 +167,37 @@ CMakeFiles/orb.dir/uORBUtils.cpp.o: ../uORBUtils.hpp
 CMakeFiles/orb.dir/uORBUtils.cpp.o: ../vdev.h
 CMakeFiles/orb.dir/uORBUtils.cpp.o: ../visibility.h
 
+CMakeFiles/orb.dir/vdev.cpp.o: ../drv_hrt.h
 CMakeFiles/orb.dir/vdev.cpp.o: ../px4_defines.h
 CMakeFiles/orb.dir/vdev.cpp.o: ../px4_log.h
 CMakeFiles/orb.dir/vdev.cpp.o: ../px4_posix.h
+CMakeFiles/orb.dir/vdev.cpp.o: ../px4_time.h
+CMakeFiles/orb.dir/vdev.cpp.o: ../px4_workqueue.h
+CMakeFiles/orb.dir/vdev.cpp.o: ../queue.h
 CMakeFiles/orb.dir/vdev.cpp.o: ../vdev.cpp
 CMakeFiles/orb.dir/vdev.cpp.o: ../vdev.h
 CMakeFiles/orb.dir/vdev.cpp.o: ../visibility.h
 
+CMakeFiles/orb.dir/vdev_posix.cpp.o: ../drv_hrt.h
 CMakeFiles/orb.dir/vdev_posix.cpp.o: ../hrt_work.h
 CMakeFiles/orb.dir/vdev_posix.cpp.o: ../px4_defines.h
 CMakeFiles/orb.dir/vdev_posix.cpp.o: ../px4_log.h
 CMakeFiles/orb.dir/vdev_posix.cpp.o: ../px4_posix.h
 CMakeFiles/orb.dir/vdev_posix.cpp.o: ../px4_time.h
+CMakeFiles/orb.dir/vdev_posix.cpp.o: ../px4_workqueue.h
+CMakeFiles/orb.dir/vdev_posix.cpp.o: ../queue.h
 CMakeFiles/orb.dir/vdev_posix.cpp.o: ../vdev.h
 CMakeFiles/orb.dir/vdev_posix.cpp.o: ../vdev_posix.cpp
 CMakeFiles/orb.dir/vdev_posix.cpp.o: ../vfile.h
 CMakeFiles/orb.dir/vdev_posix.cpp.o: ../visibility.h
 
+CMakeFiles/orb.dir/vfile.cpp.o: ../drv_hrt.h
 CMakeFiles/orb.dir/vfile.cpp.o: ../px4_defines.h
 CMakeFiles/orb.dir/vfile.cpp.o: ../px4_log.h
 CMakeFiles/orb.dir/vfile.cpp.o: ../px4_posix.h
+CMakeFiles/orb.dir/vfile.cpp.o: ../px4_time.h
+CMakeFiles/orb.dir/vfile.cpp.o: ../px4_workqueue.h
+CMakeFiles/orb.dir/vfile.cpp.o: ../queue.h
 CMakeFiles/orb.dir/vfile.cpp.o: ../vdev.h
 CMakeFiles/orb.dir/vfile.cpp.o: ../vfile.cpp
 CMakeFiles/orb.dir/vfile.cpp.o: ../vfile.h

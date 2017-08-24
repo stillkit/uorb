@@ -6,6 +6,24 @@
 
 #IncludeRegexTransform: 
 
+/home/kit/uorb/nuorb/cpuload.cpp
+px4_config.h
+/home/kit/uorb/nuorb/px4_config.h
+drv_orb_dev.h
+/home/kit/uorb/nuorb/drv_orb_dev.h
+cpuload.h
+/home/kit/uorb/nuorb/cpuload.h
+
+/home/kit/uorb/nuorb/cpuload.h
+stdint.h
+-
+cstring
+-
+string.h
+-
+uORB.h
+/home/kit/uorb/nuorb/uORB.h
+
 /home/kit/uorb/nuorb/device_posix.cpp
 vdev.h
 /home/kit/uorb/nuorb/vdev.h
@@ -95,6 +113,8 @@ cmath
 /home/kit/uorb/nuorb/px4_log.h
 visibility.h
 /home/kit/uorb/nuorb/visibility.h
+drv_hrt.h
+/home/kit/uorb/nuorb/drv_hrt.h
 ros/console.h
 -
 qurt_log.h
@@ -295,6 +315,8 @@ uORBCommon.hpp
 /home/kit/uorb/nuorb/uORBCommon.hpp
 px4_log.h
 /home/kit/uorb/nuorb/px4_log.h
+cpuload.h
+/home/kit/uorb/nuorb/cpuload.h
 
 /home/kit/uorb/nuorb/uORBManager.cpp
 sys/types.h

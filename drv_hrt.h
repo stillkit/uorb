@@ -39,6 +39,8 @@
 
 #pragma once
 
+#define __PX4_POSIX
+
 #include <sys/types.h>
 #include <stdbool.h>
 #include <inttypes.h>
@@ -186,6 +188,8 @@ __EXPORT extern	void	hrt_start_delay(void);
  * Stop to delay the HRT.
  */
 __EXPORT extern void	hrt_stop_delay(void);
+
+__EXPORT extern bool check_timeout(const hrt_abstime * time);
 
 #endif
 

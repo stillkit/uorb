@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include "px4_log.h"
+#define __PX4_POSIX
 #ifdef __PX4_POSIX
 #include <execinfo.h>
 #endif
@@ -97,13 +98,6 @@ __EXPORT void px4_log_modulename(int level, const char *moduleName, const char *
 	}
 }
 
-static bool check_timeout(const hrt_abstime time) {
-    if (hrt_elapsed_time(time) > 2*1000*1000) {
-		printf("Waited for 2 seconds without a message. Giving up.\n");
-        return true;
-    }
-    return false;
-}
 
 void message_update_poll(void)
 {
@@ -124,7 +118,12 @@ void message_update_poll(void)
 	memset(&container, 0, sizeof(container));
 	unsigned i = 0;
 	hrt_abstime start_time = hrt_absolute_time();
-	while(i < 10) {
+	while(i < 2) {
+		// if(sub == -1)
+		// {
+		// 	sub = orb_subscribe(ORB_ID(log_message));
+		// 	ID = ORB_ID(log_message);
+		// }
 		orb_check(sub,&updated);
 		if (i == 0) { updated = true; } else { usleep(500); }
 		if (updated) {

@@ -101,6 +101,8 @@ drv_hrt.h
 /home/kit/uorb/nuorb/px4_log.h
 visibility.h
 /home/kit/uorb/nuorb/visibility.h
+drv_hrt.h
+/home/kit/uorb/nuorb/drv_hrt.h
 ros/console.h
 -
 qurt_log.h

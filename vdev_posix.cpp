@@ -193,7 +193,9 @@ extern "C" {
 
 		if (dev) {
 			PX4_DEBUG("px4_read fd = %d", fd);
+
 			ret = dev->read(filemap[fd], (char *)buffer, buflen);
+			// printf("jjjjjjjjjjjjjjjjjj %d %x %d\n",filemap[fd]->fd,buffer[0],buflen);
 
 		} else {
 			ret = -EINVAL;
@@ -236,7 +238,10 @@ extern "C" {
 
 		VDev *dev = get_vdev(fd);
 
+		// printf("fffffffffffffffffff %d\n",fd);
+
 		if (dev) {
+		    // printf("uuuuuuuuuuuuuuu %d %d %x %d\n",fd,filemap[fd]->fd,cmd,arg);
 			ret = dev->ioctl(filemap[fd], cmd, arg);
 
 		} else {
@@ -246,6 +251,7 @@ extern "C" {
 		if (ret < 0) {
 			px4_errno = -ret;
 		}
+		// printf("jjjjjjjjjjjjjjjjjjj\n");
 
 		return ret;
 	}

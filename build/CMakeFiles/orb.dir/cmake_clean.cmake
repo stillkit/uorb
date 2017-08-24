@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/orb.dir/cpuload.cpp.o"
   "CMakeFiles/orb.dir/device_posix.cpp.o"
   "CMakeFiles/orb.dir/drv_hrt.c.o"
   "CMakeFiles/orb.dir/log_message.cpp.o"

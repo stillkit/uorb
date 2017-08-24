@@ -57,9 +57,33 @@ include CMakeFiles/orb.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/orb.dir/flags.make
 
+CMakeFiles/orb.dir/cpuload.cpp.o: CMakeFiles/orb.dir/flags.make
+CMakeFiles/orb.dir/cpuload.cpp.o: ../cpuload.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kit/uorb/nuorb/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/orb.dir/cpuload.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/orb.dir/cpuload.cpp.o -c /home/kit/uorb/nuorb/cpuload.cpp
+
+CMakeFiles/orb.dir/cpuload.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/orb.dir/cpuload.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kit/uorb/nuorb/cpuload.cpp > CMakeFiles/orb.dir/cpuload.cpp.i
+
+CMakeFiles/orb.dir/cpuload.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/orb.dir/cpuload.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kit/uorb/nuorb/cpuload.cpp -o CMakeFiles/orb.dir/cpuload.cpp.s
+
+CMakeFiles/orb.dir/cpuload.cpp.o.requires:
+
+.PHONY : CMakeFiles/orb.dir/cpuload.cpp.o.requires
+
+CMakeFiles/orb.dir/cpuload.cpp.o.provides: CMakeFiles/orb.dir/cpuload.cpp.o.requires
+	$(MAKE) -f CMakeFiles/orb.dir/build.make CMakeFiles/orb.dir/cpuload.cpp.o.provides.build
+.PHONY : CMakeFiles/orb.dir/cpuload.cpp.o.provides
+
+CMakeFiles/orb.dir/cpuload.cpp.o.provides.build: CMakeFiles/orb.dir/cpuload.cpp.o
+
+
 CMakeFiles/orb.dir/device_posix.cpp.o: CMakeFiles/orb.dir/flags.make
 CMakeFiles/orb.dir/device_posix.cpp.o: ../device_posix.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kit/uorb/nuorb/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/orb.dir/device_posix.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kit/uorb/nuorb/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/orb.dir/device_posix.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/orb.dir/device_posix.cpp.o -c /home/kit/uorb/nuorb/device_posix.cpp
 
 CMakeFiles/orb.dir/device_posix.cpp.i: cmake_force
@@ -83,7 +107,7 @@ CMakeFiles/orb.dir/device_posix.cpp.o.provides.build: CMakeFiles/orb.dir/device_
 
 CMakeFiles/orb.dir/drv_hrt.c.o: CMakeFiles/orb.dir/flags.make
 CMakeFiles/orb.dir/drv_hrt.c.o: ../drv_hrt.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kit/uorb/nuorb/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/orb.dir/drv_hrt.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kit/uorb/nuorb/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/orb.dir/drv_hrt.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/orb.dir/drv_hrt.c.o   -c /home/kit/uorb/nuorb/drv_hrt.c
 
 CMakeFiles/orb.dir/drv_hrt.c.i: cmake_force
@@ -107,7 +131,7 @@ CMakeFiles/orb.dir/drv_hrt.c.o.provides.build: CMakeFiles/orb.dir/drv_hrt.c.o
 
 CMakeFiles/orb.dir/log_message.cpp.o: CMakeFiles/orb.dir/flags.make
 CMakeFiles/orb.dir/log_message.cpp.o: ../log_message.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kit/uorb/nuorb/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/orb.dir/log_message.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kit/uorb/nuorb/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/orb.dir/log_message.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/orb.dir/log_message.cpp.o -c /home/kit/uorb/nuorb/log_message.cpp
 
 CMakeFiles/orb.dir/log_message.cpp.i: cmake_force
@@ -131,7 +155,7 @@ CMakeFiles/orb.dir/log_message.cpp.o.provides.build: CMakeFiles/orb.dir/log_mess
 
 CMakeFiles/orb.dir/px4_log.c.o: CMakeFiles/orb.dir/flags.make
 CMakeFiles/orb.dir/px4_log.c.o: ../px4_log.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kit/uorb/nuorb/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/orb.dir/px4_log.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kit/uorb/nuorb/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/orb.dir/px4_log.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/orb.dir/px4_log.c.o   -c /home/kit/uorb/nuorb/px4_log.c
 
 CMakeFiles/orb.dir/px4_log.c.i: cmake_force
@@ -155,7 +179,7 @@ CMakeFiles/orb.dir/px4_log.c.o.provides.build: CMakeFiles/orb.dir/px4_log.c.o
 
 CMakeFiles/orb.dir/px4_posix_tasks.cpp.o: CMakeFiles/orb.dir/flags.make
 CMakeFiles/orb.dir/px4_posix_tasks.cpp.o: ../px4_posix_tasks.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kit/uorb/nuorb/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/orb.dir/px4_posix_tasks.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kit/uorb/nuorb/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/orb.dir/px4_posix_tasks.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/orb.dir/px4_posix_tasks.cpp.o -c /home/kit/uorb/nuorb/px4_posix_tasks.cpp
 
 CMakeFiles/orb.dir/px4_posix_tasks.cpp.i: cmake_force
@@ -179,7 +203,7 @@ CMakeFiles/orb.dir/px4_posix_tasks.cpp.o.provides.build: CMakeFiles/orb.dir/px4_
 
 CMakeFiles/orb.dir/queue.c.o: CMakeFiles/orb.dir/flags.make
 CMakeFiles/orb.dir/queue.c.o: ../queue.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kit/uorb/nuorb/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/orb.dir/queue.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kit/uorb/nuorb/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/orb.dir/queue.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/orb.dir/queue.c.o   -c /home/kit/uorb/nuorb/queue.c
 
 CMakeFiles/orb.dir/queue.c.i: cmake_force
@@ -203,7 +227,7 @@ CMakeFiles/orb.dir/queue.c.o.provides.build: CMakeFiles/orb.dir/queue.c.o
 
 CMakeFiles/orb.dir/sq_addafter.c.o: CMakeFiles/orb.dir/flags.make
 CMakeFiles/orb.dir/sq_addafter.c.o: ../sq_addafter.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kit/uorb/nuorb/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/orb.dir/sq_addafter.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kit/uorb/nuorb/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/orb.dir/sq_addafter.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/orb.dir/sq_addafter.c.o   -c /home/kit/uorb/nuorb/sq_addafter.c
 
 CMakeFiles/orb.dir/sq_addafter.c.i: cmake_force
@@ -227,7 +251,7 @@ CMakeFiles/orb.dir/sq_addafter.c.o.provides.build: CMakeFiles/orb.dir/sq_addafte
 
 CMakeFiles/orb.dir/sq_addlast.c.o: CMakeFiles/orb.dir/flags.make
 CMakeFiles/orb.dir/sq_addlast.c.o: ../sq_addlast.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kit/uorb/nuorb/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/orb.dir/sq_addlast.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kit/uorb/nuorb/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/orb.dir/sq_addlast.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/orb.dir/sq_addlast.c.o   -c /home/kit/uorb/nuorb/sq_addlast.c
 
 CMakeFiles/orb.dir/sq_addlast.c.i: cmake_force
@@ -251,7 +275,7 @@ CMakeFiles/orb.dir/sq_addlast.c.o.provides.build: CMakeFiles/orb.dir/sq_addlast.
 
 CMakeFiles/orb.dir/uORB.cpp.o: CMakeFiles/orb.dir/flags.make
 CMakeFiles/orb.dir/uORB.cpp.o: ../uORB.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kit/uorb/nuorb/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/orb.dir/uORB.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kit/uorb/nuorb/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/orb.dir/uORB.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/orb.dir/uORB.cpp.o -c /home/kit/uorb/nuorb/uORB.cpp
 
 CMakeFiles/orb.dir/uORB.cpp.i: cmake_force
@@ -275,7 +299,7 @@ CMakeFiles/orb.dir/uORB.cpp.o.provides.build: CMakeFiles/orb.dir/uORB.cpp.o
 
 CMakeFiles/orb.dir/uORBDevices_posix.cpp.o: CMakeFiles/orb.dir/flags.make
 CMakeFiles/orb.dir/uORBDevices_posix.cpp.o: ../uORBDevices_posix.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kit/uorb/nuorb/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/orb.dir/uORBDevices_posix.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kit/uorb/nuorb/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/orb.dir/uORBDevices_posix.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/orb.dir/uORBDevices_posix.cpp.o -c /home/kit/uorb/nuorb/uORBDevices_posix.cpp
 
 CMakeFiles/orb.dir/uORBDevices_posix.cpp.i: cmake_force
@@ -299,7 +323,7 @@ CMakeFiles/orb.dir/uORBDevices_posix.cpp.o.provides.build: CMakeFiles/orb.dir/uO
 
 CMakeFiles/orb.dir/uORBMain.cpp.o: CMakeFiles/orb.dir/flags.make
 CMakeFiles/orb.dir/uORBMain.cpp.o: ../uORBMain.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kit/uorb/nuorb/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/orb.dir/uORBMain.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kit/uorb/nuorb/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/orb.dir/uORBMain.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/orb.dir/uORBMain.cpp.o -c /home/kit/uorb/nuorb/uORBMain.cpp
 
 CMakeFiles/orb.dir/uORBMain.cpp.i: cmake_force
@@ -323,7 +347,7 @@ CMakeFiles/orb.dir/uORBMain.cpp.o.provides.build: CMakeFiles/orb.dir/uORBMain.cp
 
 CMakeFiles/orb.dir/uORBManager.cpp.o: CMakeFiles/orb.dir/flags.make
 CMakeFiles/orb.dir/uORBManager.cpp.o: ../uORBManager.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kit/uorb/nuorb/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/orb.dir/uORBManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kit/uorb/nuorb/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/orb.dir/uORBManager.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/orb.dir/uORBManager.cpp.o -c /home/kit/uorb/nuorb/uORBManager.cpp
 
 CMakeFiles/orb.dir/uORBManager.cpp.i: cmake_force
@@ -347,7 +371,7 @@ CMakeFiles/orb.dir/uORBManager.cpp.o.provides.build: CMakeFiles/orb.dir/uORBMana
 
 CMakeFiles/orb.dir/uORBUtils.cpp.o: CMakeFiles/orb.dir/flags.make
 CMakeFiles/orb.dir/uORBUtils.cpp.o: ../uORBUtils.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kit/uorb/nuorb/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/orb.dir/uORBUtils.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kit/uorb/nuorb/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/orb.dir/uORBUtils.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/orb.dir/uORBUtils.cpp.o -c /home/kit/uorb/nuorb/uORBUtils.cpp
 
 CMakeFiles/orb.dir/uORBUtils.cpp.i: cmake_force
@@ -371,7 +395,7 @@ CMakeFiles/orb.dir/uORBUtils.cpp.o.provides.build: CMakeFiles/orb.dir/uORBUtils.
 
 CMakeFiles/orb.dir/vdev.cpp.o: CMakeFiles/orb.dir/flags.make
 CMakeFiles/orb.dir/vdev.cpp.o: ../vdev.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kit/uorb/nuorb/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/orb.dir/vdev.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kit/uorb/nuorb/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/orb.dir/vdev.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/orb.dir/vdev.cpp.o -c /home/kit/uorb/nuorb/vdev.cpp
 
 CMakeFiles/orb.dir/vdev.cpp.i: cmake_force
@@ -395,7 +419,7 @@ CMakeFiles/orb.dir/vdev.cpp.o.provides.build: CMakeFiles/orb.dir/vdev.cpp.o
 
 CMakeFiles/orb.dir/vdev_posix.cpp.o: CMakeFiles/orb.dir/flags.make
 CMakeFiles/orb.dir/vdev_posix.cpp.o: ../vdev_posix.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kit/uorb/nuorb/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/orb.dir/vdev_posix.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kit/uorb/nuorb/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/orb.dir/vdev_posix.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/orb.dir/vdev_posix.cpp.o -c /home/kit/uorb/nuorb/vdev_posix.cpp
 
 CMakeFiles/orb.dir/vdev_posix.cpp.i: cmake_force
@@ -419,7 +443,7 @@ CMakeFiles/orb.dir/vdev_posix.cpp.o.provides.build: CMakeFiles/orb.dir/vdev_posi
 
 CMakeFiles/orb.dir/vfile.cpp.o: CMakeFiles/orb.dir/flags.make
 CMakeFiles/orb.dir/vfile.cpp.o: ../vfile.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kit/uorb/nuorb/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/orb.dir/vfile.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kit/uorb/nuorb/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/orb.dir/vfile.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/orb.dir/vfile.cpp.o -c /home/kit/uorb/nuorb/vfile.cpp
 
 CMakeFiles/orb.dir/vfile.cpp.i: cmake_force
@@ -443,6 +467,7 @@ CMakeFiles/orb.dir/vfile.cpp.o.provides.build: CMakeFiles/orb.dir/vfile.cpp.o
 
 # Object files for target orb
 orb_OBJECTS = \
+"CMakeFiles/orb.dir/cpuload.cpp.o" \
 "CMakeFiles/orb.dir/device_posix.cpp.o" \
 "CMakeFiles/orb.dir/drv_hrt.c.o" \
 "CMakeFiles/orb.dir/log_message.cpp.o" \
@@ -463,6 +488,7 @@ orb_OBJECTS = \
 # External object files for target orb
 orb_EXTERNAL_OBJECTS =
 
+orb: CMakeFiles/orb.dir/cpuload.cpp.o
 orb: CMakeFiles/orb.dir/device_posix.cpp.o
 orb: CMakeFiles/orb.dir/drv_hrt.c.o
 orb: CMakeFiles/orb.dir/log_message.cpp.o
@@ -481,7 +507,7 @@ orb: CMakeFiles/orb.dir/vdev_posix.cpp.o
 orb: CMakeFiles/orb.dir/vfile.cpp.o
 orb: CMakeFiles/orb.dir/build.make
 orb: CMakeFiles/orb.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/kit/uorb/nuorb/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Linking CXX executable orb"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/kit/uorb/nuorb/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Linking CXX executable orb"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/orb.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -489,6 +515,7 @@ CMakeFiles/orb.dir/build: orb
 
 .PHONY : CMakeFiles/orb.dir/build
 
+CMakeFiles/orb.dir/requires: CMakeFiles/orb.dir/cpuload.cpp.o.requires
 CMakeFiles/orb.dir/requires: CMakeFiles/orb.dir/device_posix.cpp.o.requires
 CMakeFiles/orb.dir/requires: CMakeFiles/orb.dir/drv_hrt.c.o.requires
 CMakeFiles/orb.dir/requires: CMakeFiles/orb.dir/log_message.cpp.o.requires

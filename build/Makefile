@@ -123,6 +123,33 @@ orb/fast:
 	$(MAKE) -f CMakeFiles/orb.dir/build.make CMakeFiles/orb.dir/build
 .PHONY : orb/fast
 
+cpuload.o: cpuload.cpp.o
+
+.PHONY : cpuload.o
+
+# target to build an object file
+cpuload.cpp.o:
+	$(MAKE) -f CMakeFiles/orb.dir/build.make CMakeFiles/orb.dir/cpuload.cpp.o
+.PHONY : cpuload.cpp.o
+
+cpuload.i: cpuload.cpp.i
+
+.PHONY : cpuload.i
+
+# target to preprocess a source file
+cpuload.cpp.i:
+	$(MAKE) -f CMakeFiles/orb.dir/build.make CMakeFiles/orb.dir/cpuload.cpp.i
+.PHONY : cpuload.cpp.i
+
+cpuload.s: cpuload.cpp.s
+
+.PHONY : cpuload.s
+
+# target to generate assembly for a file
+cpuload.cpp.s:
+	$(MAKE) -f CMakeFiles/orb.dir/build.make CMakeFiles/orb.dir/cpuload.cpp.s
+.PHONY : cpuload.cpp.s
+
 device_posix.o: device_posix.cpp.o
 
 .PHONY : device_posix.o
@@ -564,6 +591,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... orb"
+	@echo "... cpuload.o"
+	@echo "... cpuload.i"
+	@echo "... cpuload.s"
 	@echo "... device_posix.o"
 	@echo "... device_posix.i"
 	@echo "... device_posix.s"

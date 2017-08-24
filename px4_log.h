@@ -38,7 +38,10 @@
 
 #pragma once
 #define __PX4_POSIX
+#define TRACE_BUILD
 #include "visibility.h"
+#include "drv_hrt.h"
+//#include "qurt_log.h"
 
 
 #define _PX4_LOG_LEVEL_ALWAYS		0

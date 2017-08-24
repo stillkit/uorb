@@ -17,6 +17,7 @@ set(CMAKE_C_COMPILER_ID "GNU")
 set(CMAKE_C_TARGET_INCLUDE_PATH
   )
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/home/kit/uorb/nuorb/cpuload.cpp" "/home/kit/uorb/nuorb/build/CMakeFiles/orb.dir/cpuload.cpp.o"
   "/home/kit/uorb/nuorb/device_posix.cpp" "/home/kit/uorb/nuorb/build/CMakeFiles/orb.dir/device_posix.cpp.o"
   "/home/kit/uorb/nuorb/log_message.cpp" "/home/kit/uorb/nuorb/build/CMakeFiles/orb.dir/log_message.cpp.o"
   "/home/kit/uorb/nuorb/px4_posix_tasks.cpp" "/home/kit/uorb/nuorb/build/CMakeFiles/orb.dir/px4_posix_tasks.cpp.o"

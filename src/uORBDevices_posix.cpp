@@ -714,7 +714,7 @@ int
 uORB::DeviceMaster::ioctl(device::file_t *filp, int cmd, unsigned long arg)
 {
 	int ret;
-	printf("0000000000000000000000\n");
+	// printf("0000000000000000000000\n");
 
 	switch (cmd) {
 	case ORBIOCADVERTISE: {

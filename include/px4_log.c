@@ -110,7 +110,7 @@ void message_update_poll(void)
 	// 	struct parameter_update_s param_update;
 	// 	orb_copy(ORB_ID(log_message), sub, &param_update);
 	// }
-
+usleep(1000000); 
 	sub = orb_subscribe(ORB_ID(log_message));
 	ID = ORB_ID(log_message);
 	bool updated;

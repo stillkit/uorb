@@ -255,7 +255,7 @@ PX4_DEBUG("start dev1 ------------------------ ");
 		// printf("fffffffffffffffffff %d\n",fd);
 
 		if (dev) {
-		    printf("uuuuuuuuuuuuuuu %d %d %x %d\n",fd,filemap[fd]->fd,cmd,arg);
+		    // printf("uuuuuuuuuuuuuuu %d %d %x %d\n",fd,filemap[fd]->fd,cmd,arg);
 			ret = dev->ioctl(filemap[fd], cmd, arg);
 			// dev->printStatistics(false);
 
@@ -266,7 +266,7 @@ PX4_DEBUG("start dev1 ------------------------ ");
 		if (ret < 0) {
 			px4_errno = -ret;
 		}
-		printf("jjjjjjjjjjjjjjjjjjj\n");
+		// printf("jjjjjjjjjjjjjjjjjjj\n");
 
 		return ret;
 	}

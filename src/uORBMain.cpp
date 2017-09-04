@@ -8,8 +8,8 @@
 // #define __PX4_POSIX
 #define DEBUG
 #include "px4_log.h"
-#include "topic_header/cpuload.h"
-#include "topic_header/camera_trigger.h"
+#include "cpuload.h"
+#include "camera_trigger.h"
 #include "uORBDevices_posix.hpp"
 
 
@@ -35,24 +35,7 @@ void adviser_cpuload(void){
 
 	} else {
 		orb_publish(ORB_ID(cpuload), _cpuload_pub, &_cpuload);
-		PX4_INFO("tttttttttttttttttttt");
-	}
-	// printf("SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS\n");
-}
-
-
-void update_cpuload(void){
-	_cpuload.timestamp = hrt_absolute_time();
-	_cpuload.load = 2.0f;
-	_cpuload.ram_usage = 3.0f;
-
-	if (_cpuload_pub == nullptr) {
-		_cpuload_pub = orb_advertise(ORB_ID(cpuload), &_cpuload);
-		// _cpuload_pub = orb_advertise_queue(ORB_ID(cpuload), &_cpuload, 2);
-
-	} else {
-		orb_publish(ORB_ID(cpuload), _cpuload_pub, &_cpuload);
-		PX4_INFO("kkkkkkkkkkkkkkkkkkkkkkkk");
+		// PX4_INFO("tttttttttttttttttttt");
 	}
 	// printf("SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS\n");
 }
@@ -84,7 +67,7 @@ void camera_tregger_update_poll(void)
 	// 	struct parameter_update_s param_update;
 	// 	orb_copy(ORB_ID(log_message), sub, &param_update);
 	// }
-	usleep(1000000); 
+	// usleep(1000000); 
 	int sub = -1;
 	// orb_id_t ID;
 	// struct camera_trigger_s container;	
@@ -168,8 +151,8 @@ void * kpthread(void * arg)
 	// printf("This is a pthread\n");
 	//message_update_poll();
 	// px4_log_initialize();
-	// message_update_poll();
-	cpuload_update_poll();
+	message_update_poll();
+	// cpuload_update_poll();
 	printf("This is a pthread\n");
 }
 
@@ -179,7 +162,7 @@ void * mpthread(void * arg)
 	// for(i=0;i<3;i++)
 	// printf("This is a m pthread\n");
 	// message_update_poll();
-	// px4_log_initialize();
+	px4_log_initialize();
 	adviser_cpuload();
 	printf("This is a m pthread\n");
 }
@@ -191,8 +174,9 @@ void * mpsthread(void * arg)
 	// printf("This is a m pthread\n");
 	// message_update_poll();
 	// px4_log_initialize();
-	update_cpuload();
-	printf("This is a m pthread\n");
+	// update_cpuload();
+	cpuload_update_poll();
+	printf("This is a s pthread\n");
 }
 
 #define error(x) my_error(__FILE__, __LINE__, x)
@@ -241,8 +225,8 @@ main(int argc, char *argv[])
 		// PX4_WARN("llllllllllllllllllll");
 		// error("kkkkkkkkkkkkkkkk");
 
-		adviser_cpuload();
-		cpuload_update_poll();
+		// adviser_cpuload();
+		// cpuload_update_poll();
 
 		// device::file_t *filp = (device::file_t *)1;
 		// SubscriberData *sd = (SubscriberData *)(uORB::DeviceNode::filp_to_sd(filp));
@@ -275,29 +259,30 @@ main(int argc, char *argv[])
 		// 	// }			
 		// }
 
-		// pthread_t id,id2,id3;
-		// int ret;
-		// ret=pthread_create(&id,NULL,kpthread,(NULL));
-		// if(ret!=0){
-		// 	printf ("Create first pthread error!\n");
-		// 	exit (1);
-		// }
+		pthread_t id,id2,id3;
+		int ret;
+		ret=pthread_create(&id,NULL,mpthread,(NULL));
+		if(ret!=0){
+			printf ("Create first pthread error!\n");
+			exit (1);
+		}
 
-		// ret=pthread_create(&id2,NULL,mpthread,(NULL));
-		// if(ret!=0){
-		// 	printf ("Create second pthread error!\n");
-		// 	exit (1);
-		// }
+		ret=pthread_create(&id2,NULL,kpthread,(NULL));
+		if(ret!=0){
+			printf ("Create second pthread error!\n");
+			exit (1);
+		}
 
-		// ret=pthread_create(&id2,NULL,mpsthread,(NULL));
-		// if(ret!=0){
-		// 	printf ("Create second pthread error!\n");
-		// 	exit (1);
-		// }
-		// // for(i=0;i<3;i++)
-		// 	printf("This is the main process\n");
-		// pthread_join(id2,NULL);
-		// pthread_join(id,NULL);
+		ret=pthread_create(&id3,NULL,mpsthread,(NULL));
+		if(ret!=0){
+			printf ("Create third pthread error!\n");
+			exit (1);
+		}
+		// for(i=0;i<3;i++)
+			printf("This is the main process\n");
+		pthread_join(id3,NULL);
+		pthread_join(id2,NULL);
+		pthread_join(id,NULL);
 
 		// message_update_poll();
 		// cpuload_update_poll();

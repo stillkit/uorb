@@ -1,3 +1,0 @@
-/home/kit/uorb/nuorb/build/CMakeFiles/rebuild_cache.dir
-/home/kit/uorb/nuorb/build/CMakeFiles/edit_cache.dir
-/home/kit/uorb/nuorb/build/CMakeFiles/orb.dir

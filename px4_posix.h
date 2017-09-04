@@ -52,9 +52,13 @@
 #include <semaphore.h>
 
 
-#define  PX4_F_RDONLY O_RDONLY
-#define  PX4_F_WRONLY O_WRONLY
-#define  PX4_F_CREAT  O_CREAT
+// #define  PX4_F_RDONLY O_RDONLY
+// #define  PX4_F_WRONLY O_WRONLY
+// #define  PX4_F_CREAT  O_CREAT
+
+#define  PX4_F_RDONLY 1
+#define  PX4_F_WRONLY 2
+#define  PX4_F_CREAT  4
 
 typedef short pollevent_t;
 

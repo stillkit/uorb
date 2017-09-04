@@ -132,6 +132,7 @@
 
 // Flag is meaningless on Linux
 #define O_BINARY 0
+typedef unsigned int mode_t;
 
 // mode for open with O_CREAT
 #define PX4_O_MODE_777 (S_IRWXU | S_IRWXG | S_IRWXO)

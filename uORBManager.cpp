@@ -72,10 +72,10 @@ uORB::Manager::Manager()
 
 	if (ret == PX4_OK) {
 		_has_publisher_rules = true;
-		// PX4_INFO("Using orb rules from %s", file_name);
+		PX4_INFO("Using orb rules from %s", file_name);
 
 	} else {
-		// PX4_ERR("Failed to read publisher rules file %s (%s)", file_name, strerror(-ret));
+		PX4_ERR("Failed to read publisher rules file %s (%s)", file_name, strerror(-ret));
 	}
 
 #endif /* ORB_USE_PUBLISHER_RULES */
@@ -100,14 +100,14 @@ uORB::DeviceMaster *uORB::Manager::get_device_master(Flavor flavor)
 			int ret = _device_masters[flavor]->init();
 
 			if (ret != PX4_OK) {
-				// PX4_ERR("Initialization of DeviceMaster failed (%i)", ret);
+				PX4_ERR("Initialization of DeviceMaster failed (%i)", ret);
 				errno = -ret;
 				delete _device_masters[flavor];
 				_device_masters[flavor] = nullptr;
 			}
 
 		} else {
-			// PX4_ERR("Failed to allocate DeviceMaster");
+			PX4_ERR("Failed to allocate DeviceMaster");
 			errno = ENOMEM;
 		}
 	}
@@ -155,14 +155,14 @@ orb_advert_t uORB::Manager::orb_advertise_multi(const struct orb_metadata *meta,
 		if (strcmp(_publisher_rule.module_name, prog_name) == 0) {
 			if (_publisher_rule.ignore_other_topics) {
 				if (!findTopic(_publisher_rule, meta->o_name)) {
-					// PX4_DEBUG("not allowing %s to publish topic %s", prog_name, meta->o_name);
+					PX4_DEBUG("not allowing %s to publish topic %s", prog_name, meta->o_name);
 					return (orb_advert_t)_Instance;
 				}
 			}
 
 		} else {
 			if (findTopic(_publisher_rule, meta->o_name)) {
-				// PX4_DEBUG("not allowing %s to publish topic %s", prog_name, meta->o_name);
+				PX4_DEBUG("not allowing %s to publish topic %s", prog_name, meta->o_name);
 				return (orb_advert_t)_Instance;
 			}
 		}
@@ -186,13 +186,15 @@ orb_advert_t uORB::Manager::orb_advertise_multi(const struct orb_metadata *meta,
 	/* Set the queue size. This must be done before the first publication; thus it fails if
 	 * this is not the first advertiser.
 	 */
+	PX4_DEBUG("11111111111111 orb_advertise_multi px4_ioctl");
 	result = px4_ioctl(fd, ORBIOCSETQUEUESIZE, (unsigned long)queue_size);
 
 	if (result < 0 && queue_size > 1) {
-		// PX4_WARN("orb_advertise_multi: failed to set queue size");
+		PX4_WARN("orb_advertise_multi: failed to set queue size");
 	}
 
 	/* get the advertiser handle and close the node */
+	PX4_DEBUG("22222222222222 orb_advertise_multi px4_ioctl");
 	result = px4_ioctl(fd, ORBIOCGADVERTISER, (unsigned long)&advertiser);
 	px4_close(fd);
 
@@ -276,27 +278,32 @@ int uORB::Manager::orb_check(int handle, bool *updated)
 {
 	/* Set to false here so that if `px4_ioctl` fails to false. */
 	*updated = false;
+	PX4_DEBUG("11111111111111 orb_check px4_ioctl");
 	return px4_ioctl(handle, ORBIOCUPDATED, (unsigned long)(uintptr_t)updated);
 }
 
 int uORB::Manager::orb_stat(int handle, uint64_t *time)
 {
+	PX4_DEBUG("11111111111111 orb_stat px4_ioctl");
 	return px4_ioctl(handle, ORBIOCLASTUPDATE, (unsigned long)(uintptr_t)time);
 }
 
 int uORB::Manager::orb_priority(int handle, int32_t *priority)
 {
+	PX4_DEBUG("11111111111111 orb_priority px4_ioctl");
 	return px4_ioctl(handle, ORBIOCGPRIORITY, (unsigned long)(uintptr_t)priority);
 }
 
 int uORB::Manager::orb_set_interval(int handle, unsigned interval)
 {
+	PX4_DEBUG("11111111111111 orb_set_interval px4_ioctl");
 	return px4_ioctl(handle, ORBIOCSETINTERVAL, interval * 1000);
 }
 
 int uORB::Manager::orb_get_interval(int handle, unsigned *interval)
 {
 	//ASSERT(interval);
+	PX4_DEBUG("11111111111111 orb_get_interval px4_ioctl");
 	int ret = px4_ioctl(handle, ORBIOCGETINTERVAL, (unsigned long)interval);
 	*interval /= 1000;
 	return ret;
@@ -317,6 +324,7 @@ int uORB::Manager::node_advertise
 	const struct orb_advertdata adv = { meta, instance, priority };
 
 	/* open the control device */
+	PX4_DEBUG("22222222222222222 node_advertise px4_ioctl");
 	fd = px4_open(TOPIC_MASTER_DEVICE_PATH, 0);
 
 	if (fd < 0) {
@@ -324,6 +332,7 @@ int uORB::Manager::node_advertise
 	}
 
 	/* advertise the object */
+	PX4_DEBUG("11111111111111 node_advertise px4_ioctl");
 	ret = px4_ioctl(fd, ORBIOCADVERTISE, (unsigned long)(uintptr_t)&adv);
 
 	/* it's PX4_OK if it already exists */
@@ -384,7 +393,9 @@ int uORB::Manager::node_open
 		}
 
 		/* open the path as either the advertiser or the subscriber */
+		PX4_DEBUG("---------------- %s",path);
 		fd = px4_open(path, advertiser ? PX4_F_WRONLY : PX4_F_RDONLY);
+		PX4_DEBUG("---------------- %s",path);
 
 	} else {
 		*instance = 0;
@@ -408,6 +419,7 @@ int uORB::Manager::node_open
 
 		/* on success, try the open again */
 		if (ret == PX4_OK) {
+			PX4_DEBUG("######################## %s",path);
 			fd = px4_open(path, (advertiser) ? PX4_F_WRONLY : PX4_F_RDONLY);
 		}
 	}
@@ -517,8 +529,8 @@ int16_t uORB::Manager::process_received_message(const char *messageName,
 
 		// get the node name.
 		if (node == nullptr) {
-			// PX4_DEBUG("[uORB::Manager::process_received_message(%d)]Error No existing subscriber found for message: [%s] nodepath:[%s]",
-				  // __LINE__, messageName, nodepath);
+			PX4_DEBUG("[uORB::Manager::process_received_message(%d)]Error No existing subscriber found for message: [%s] nodepath:[%s]",
+				  __LINE__, messageName, nodepath);
 
 		} else {
 			// node is present.
@@ -663,13 +675,13 @@ int uORB::Manager::readPublisherRulesFromFile(const char *file_name, PublisherRu
 			}
 
 		} else {
-			// PX4_ERR("orb rules file: wrong format: %s", line);
+			PX4_ERR("orb rules file: wrong format: %s", line);
 			ret = -EINVAL;
 		}
 	}
 
 	if (ret == PX4_OK && (!rule.module_name || !rule.topics)) {
-		// PX4_ERR("Wrong format in orb publisher rules file");
+		PX4_ERR("Wrong format in orb publisher rules file");
 		ret = -EINVAL;
 	}
 

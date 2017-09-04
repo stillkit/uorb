@@ -23,7 +23,7 @@ Device::Device(const char *name) :
 	int ret = sem_init(&_lock, 0, 1);
 
 	if (ret != 0) {
-//		PX4_WARN("SEM INIT FAIL: ret %d, %s", ret, strerror(errno));
+		PX4_WARN("SEM INIT FAIL: ret %d, %s", ret, strerror(errno));
 	}
 
 	/* setup a default device ID. When bus_type is UNKNOWN the

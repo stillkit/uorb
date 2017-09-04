@@ -73,14 +73,17 @@ extern "C" {
 		return ret;
 	}
 
-	inline VDev *get_vdev(int fd)
+	inline VDev * get_vdev(int fd)
 	{
 		pthread_mutex_lock(&filemutex);
 		bool valid = (fd < PX4_MAX_FD && fd >= 0 && filemap[fd] != NULL);
 		VDev *dev;
 
 		if (valid) {
+
+
 			dev = (VDev *)(filemap[fd]->vdev);
+			PX4_DEBUG("get_vdev %s",dev->get_devname());
 
 		} else {
 			dev = nullptr;
@@ -94,10 +97,11 @@ extern "C" {
 	{
 		PX4_DEBUG("px4_open");
 		VDev *dev = VDev::getDev(path);
+		
 		int ret = 0;
 		int i;
 		mode_t mode;
-
+PX4_DEBUG("start dev1 ------------------------ ");
 		if (!dev && (flags & (PX4_F_WRONLY | PX4_F_CREAT)) != 0 &&
 		    strncmp(path, "/obj/", 5) != 0 &&
 		    strncmp(path, "/dev/", 5) != 0) {
@@ -112,7 +116,7 @@ extern "C" {
 		}
 
 		if (dev) {
-
+			PX4_DEBUG("start dev2------------------------ ");
 			pthread_mutex_lock(&filemutex);
 
 			for (i = 0; i < PX4_MAX_FD; ++i) {
@@ -149,12 +153,22 @@ extern "C" {
 
 		} else {
 			ret = -EINVAL;
+			PX4_DEBUG("start dev3------------------------ ");
 		}
 
 		if (ret < 0) {
+			PX4_DEBUG("start dev4------------------------ ");
 			px4_errno = -ret;
 			return -1;
 		}
+
+		// VDev::showDevices();
+		// VDev::showTopics();
+		// VDev::showFiles();
+
+		px4_show_devices();
+		px4_show_topics();
+		px4_show_files();
 
 		PX4_DEBUG("px4_open fd = %d", filemap[i]->fd);
 		return filemap[i]->fd;
@@ -241,8 +255,9 @@ extern "C" {
 		// printf("fffffffffffffffffff %d\n",fd);
 
 		if (dev) {
-		    // printf("uuuuuuuuuuuuuuu %d %d %x %d\n",fd,filemap[fd]->fd,cmd,arg);
+		    printf("uuuuuuuuuuuuuuu %d %d %x %d\n",fd,filemap[fd]->fd,cmd,arg);
 			ret = dev->ioctl(filemap[fd], cmd, arg);
+			// dev->printStatistics(false);
 
 		} else {
 			ret = -EINVAL;
@@ -251,7 +266,7 @@ extern "C" {
 		if (ret < 0) {
 			px4_errno = -ret;
 		}
-		// printf("jjjjjjjjjjjjjjjjjjj\n");
+		printf("jjjjjjjjjjjjjjjjjjj\n");
 
 		return ret;
 	}
@@ -410,7 +425,13 @@ extern "C" {
 
 	void px4_show_files()
 	{
+		int i = 0;
 		VDev::showFiles();
+		for (; i < PX4_MAX_FD; ++i) {
+			if (filemap[i]) {
+				PX4_INFO("   %d", filemap[i]->fd);
+			}
+		}
 	}
 
 	void px4_enable_sim_lockstep()

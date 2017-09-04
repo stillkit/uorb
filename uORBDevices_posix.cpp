@@ -54,7 +54,13 @@ uORB::DeviceNode::SubscriberData  *uORB::DeviceNode::filp_to_sd(device::file_t *
 
 	if (filp) {
 		sd = (uORB::DeviceNode::SubscriberData *)(filp->priv);
-
+		// PX4_INFO("device::file_t fd  %d",filp->fd);
+		// PX4_INFO("device::file_t flags  %d",filp->flags);
+		// PX4_INFO("device::file_t mode  %d",filp->mode);
+		// PX4_INFO("device::file_t mode  %d",filp->priv);
+		// PX4_INFO("SubscriberData *sd->priority  %d",sd->priority());
+		// PX4_INFO("SubscriberData *sd->generation  %d",sd->generation);
+		// PX4_INFO("SubscriberData *sd->flags  %d",sd->flags);
 	} else {
 		sd = 0;
 	}
@@ -91,6 +97,7 @@ int
 uORB::DeviceNode::open(device::file_t *filp)
 {
 	int ret;
+	PX4_DEBUG("111111111111 DeviceNode::open");
 
 	/* is this a publisher? */
 	if (filp->flags == PX4_F_WRONLY) {
@@ -219,6 +226,7 @@ uORB::DeviceNode::read(device::file_t *filp, char *buffer, size_t buflen)
 
 	/* if the caller doesn't want the data, don't give it to them */
 	if (nullptr != buffer) {
+		PX4_INFO("buffer ----------- sd %d _queue_size %d %d",sd->generation,_queue_size,_generation);
 		memcpy(buffer, _data + (_meta->o_size * (sd->generation % _queue_size)), _meta->o_size);
 	}
 
@@ -297,6 +305,7 @@ uORB::DeviceNode::ioctl(device::file_t *filp, int cmd, unsigned long arg)
 {
 	//warnx("uORB::DeviceNode::ioctl fd = %d cmd = %d", filp->fd, cmd);
 	SubscriberData *sd = filp_to_sd(filp);
+	PX4_DEBUG("11111111111111 DeviceNode::ioctl");
 
 	switch (cmd) {
 	case ORBIOCLASTUPDATE:
@@ -705,6 +714,7 @@ int
 uORB::DeviceMaster::ioctl(device::file_t *filp, int cmd, unsigned long arg)
 {
 	int ret;
+	printf("0000000000000000000000\n");
 
 	switch (cmd) {
 	case ORBIOCADVERTISE: {
@@ -768,6 +778,7 @@ uORB::DeviceMaster::ioctl(device::file_t *filp, int cmd, unsigned long arg)
 				}
 
 				/* initialise the node - this may fail if e.g. a node with this name already exists */
+				PX4_INFO("add to the node register");
 				ret = node->init();
 
 				/* if init failed, discard the node and its name */
@@ -793,6 +804,7 @@ uORB::DeviceMaster::ioctl(device::file_t *filp, int cmd, unsigned long arg)
 
 				} else {
 					// add to the node map;.
+					PX4_INFO("add to the node map %s",nodepath);
 					_node_map[std::string(nodepath)] = node;
 				}
 

@@ -209,7 +209,7 @@ PX4_DEBUG("start dev1 ------------------------ ");
 			PX4_DEBUG("px4_read fd = %d", fd);
 
 			ret = dev->read(filemap[fd], (char *)buffer, buflen);
-			// printf("jjjjjjjjjjjjjjjjjj %d %x %d\n",filemap[fd]->fd,buffer[0],buflen);
+			// printf("jjjjjjjjjjjjjjjjjj %d %d %d\n",ret,filemap[fd]->fd,buflen);
 
 		} else {
 			ret = -EINVAL;

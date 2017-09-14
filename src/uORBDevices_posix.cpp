@@ -226,7 +226,7 @@ uORB::DeviceNode::read(device::file_t *filp, char *buffer, size_t buflen)
 
 	/* if the caller doesn't want the data, don't give it to them */
 	if (nullptr != buffer) {
-		PX4_INFO("buffer ----------- sd %d _queue_size %d %d",sd->generation,_queue_size,_generation);
+		PX4_INFO("buffer ----------- read _data %d sd %d _queue_size %d %d",_data,sd->generation,_queue_size,_generation);
 		memcpy(buffer, _data + (_meta->o_size * (sd->generation % _queue_size)), _meta->o_size);
 	}
 
@@ -283,6 +283,7 @@ uORB::DeviceNode::write(device::file_t *filp, const char *buffer, size_t buflen)
 	}
 
 	lock();
+	PX4_INFO("_data write address %d",_data);
 	memcpy(_data + (_meta->o_size * (_generation % _queue_size)), buffer, _meta->o_size);
 
 	/* update the timestamp and generation count */

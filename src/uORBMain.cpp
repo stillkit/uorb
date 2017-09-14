@@ -24,6 +24,27 @@ struct cpuload_s _cpuload;
 static orb_advert_t _cpuload_pub = nullptr;
 
 void adviser_cpuload(void){
+
+	// if (g_dev != nullptr) {
+	// 		PX4_WARN("already loaded");
+	// 		/* user wanted to start uorb, its already running, no error */
+	// 		return;
+	// 		// return 0;
+	// 	}
+
+	// 	if (!uORB::Manager::initialize()) {
+	// 		PX4_ERR("uorb manager alloc failed");
+	// 		return;
+	// 		// return -ENOMEM;
+	// 	}
+
+	// 	/* create the driver */
+	// 	g_dev = uORB::Manager::get_instance()->get_device_master(uORB::PUBSUB);
+
+	// 	if (g_dev == nullptr) {
+	// 		return;
+	// 		// return -errno;
+	// 	}
 	
 	_cpuload.timestamp = hrt_absolute_time();
 	_cpuload.load = 1.0f;
@@ -151,8 +172,8 @@ void * kpthread(void * arg)
 	// printf("This is a pthread\n");
 	//message_update_poll();
 	// px4_log_initialize();
-	message_update_poll();
-	// cpuload_update_poll();
+	// message_update_poll();
+	cpuload_update_poll();
 	printf("This is a pthread\n");
 }
 
@@ -162,7 +183,7 @@ void * mpthread(void * arg)
 	// for(i=0;i<3;i++)
 	// printf("This is a m pthread\n");
 	// message_update_poll();
-	px4_log_initialize();
+	// px4_log_initialize();
 	adviser_cpuload();
 	printf("This is a m pthread\n");
 }
@@ -201,23 +222,23 @@ main(int argc, char *argv[])
 	 */
 	if (!strcmp(argv[1], "start")) {
 
-		if (g_dev != nullptr) {
-			PX4_WARN("already loaded");
-			/* user wanted to start uorb, its already running, no error */
-			return 0;
-		}
+		// if (g_dev != nullptr) {
+		// 	PX4_WARN("already loaded");
+		// 	/* user wanted to start uorb, its already running, no error */
+		// 	return 0;
+		// }
 
-		if (!uORB::Manager::initialize()) {
-			PX4_ERR("uorb manager alloc failed");
-			return -ENOMEM;
-		}
+		// if (!uORB::Manager::initialize()) {
+		// 	PX4_ERR("uorb manager alloc failed");
+		// 	return -ENOMEM;
+		// }
 
-		/* create the driver */
-		g_dev = uORB::Manager::get_instance()->get_device_master(uORB::PUBSUB);
+		// /* create the driver */
+		// g_dev = uORB::Manager::get_instance()->get_device_master(uORB::PUBSUB);
 
-		if (g_dev == nullptr) {
-			return -errno;
-		}
+		// if (g_dev == nullptr) {
+		// 	return -errno;
+		// }
 		// printf("11111111111111");
 		// PX4_DEBUG("qqqqqqqqqqqqqqqqqqqqqqqqqqqq");
 		// PX4_PANIC("ggggggggggggggggggggggggg");	
@@ -240,49 +261,113 @@ main(int argc, char *argv[])
 		// // cpuload_update_poll();
 		// adviser_camera_tregger();
 		// camera_tregger_update_poll();
+
+		if(fork() == 0){
+			printf("This is a first sun process\n");
+			// adviser_cpuload();
+			// message_update_poll();
+			// cpuload_update_poll();
+			if (g_dev != nullptr) {
+				PX4_WARN("already loaded");
+				/* user wanted to start uorb, its already running, no error */
+				return 0;
+			}
+
+			if (!uORB::Manager::initialize()) {
+				PX4_ERR("uorb manager alloc failed");
+				return -ENOMEM;
+			}
+
+			/* create the driver */
+			g_dev = uORB::Manager::get_instance()->get_device_master(uORB::PUBSUB);
+
+			if (g_dev == nullptr) {
+				return -errno;
+			}
+			printf("This is a farter pthread\n");
+	
+		}else{
+			if(fork() == 0){
+				printf("This is a second sun process\n");
+				// px4_log_initialize();
+				// adviser_cpuload();
+				// cpuload_update_poll();
+				// usleep(1000000);		
+				// cpuload_update_poll();	
+				adviser_cpuload();
+				
+			}else{
+				if(fork() == 0){
+					cpuload_update_poll();	
+				}
+				
+			}
+					
+		}
 		
 		// if(fork() == 0){
 		// 	printf("This is a first sun process\n");
-		// 	// message_update_poll();
-		// 	// cpuload_update_poll();
 		// 	adviser_cpuload();
+			
 		// }else{
-		// 	// if(fork() == 0){
+		// 	if(fork() == 0){
 		// 		printf("This is a second sun process\n");
 		// 		// px4_log_initialize();
 		// 		// adviser_cpuload();
 		// 		// cpuload_update_poll();
-		// 		// usleep(1000000);
-		// 		cpuload_update_poll();
-		// 	// }else{
-		// 	// 	printf("This is a farter pthread\n");
-		// 	// }			
+		// 		// usleep(1000000);		
+		// 		cpuload_update_poll();	
+				
+		// 	}else{
+				
+				
+		// 		// message_update_poll();
+		// 		// cpuload_update_poll();
+		// 		if (g_dev != nullptr) {
+		// 			PX4_WARN("already loaded");
+		// 			/* user wanted to start uorb, its already running, no error */
+		// 			return 0;
+		// 		}
+
+		// 		if (!uORB::Manager::initialize()) {
+		// 			PX4_ERR("uorb manager alloc failed");
+		// 			return -ENOMEM;
+		// 		}
+
+		// 		/* create the driver */
+		// 		g_dev = uORB::Manager::get_instance()->get_device_master(uORB::PUBSUB);
+
+		// 		if (g_dev == nullptr) {
+		// 			return -errno;
+		// 		}
+		// 		printf("This is a farter pthread\n");
+		// 	}			
 		// }
 
-		pthread_t id,id2,id3;
-		int ret;
-		ret=pthread_create(&id,NULL,mpthread,(NULL));
-		if(ret!=0){
-			printf ("Create first pthread error!\n");
-			exit (1);
-		}
+		// pthread_t id,id2,id3;
+		// int ret;
+		// ret=pthread_create(&id,NULL,mpthread,(NULL));
+		// if(ret!=0){
+		// 	printf ("Create first pthread error!\n");
+		// 	exit (1);
+		// }
 
-		ret=pthread_create(&id2,NULL,kpthread,(NULL));
-		if(ret!=0){
-			printf ("Create second pthread error!\n");
-			exit (1);
-		}
+		// ret=pthread_create(&id2,NULL,kpthread,(NULL));
+		// if(ret!=0){
+		// 	printf ("Create second pthread error!\n");
+		// 	exit (1);
+		// }
 
-		ret=pthread_create(&id3,NULL,mpsthread,(NULL));
-		if(ret!=0){
-			printf ("Create third pthread error!\n");
-			exit (1);
-		}
-		// for(i=0;i<3;i++)
-			printf("This is the main process\n");
-		pthread_join(id3,NULL);
-		pthread_join(id2,NULL);
-		pthread_join(id,NULL);
+		// // ret=pthread_create(&id3,NULL,mpsthread,(NULL));
+		// // if(ret!=0){
+		// // 	printf ("Create third pthread error!\n");
+		// // 	exit (1);
+		// // }
+		// // for(i=0;i<3;i++)
+		// 	printf("This is the main process\n");
+		// pthread_join(id3,NULL);
+		// pthread_join(id2,NULL);
+		// pthread_join(id,NULL);
 
 		// message_update_poll();
 		// cpuload_update_poll();

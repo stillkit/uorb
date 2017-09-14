@@ -1,0 +1,41 @@
+This is a second sun process
+DEBUG 17         0XAD374780 ---------------- /obj/cpuload0
+DEBUG 23         0XAD374780 px4_open
+DEBUG 24         0XAD374780 VDev::getDev
+DEBUG 26         0XAD374780 VDev::getDev nullptr
+DEBUG 26         0XAD374780 start dev1 ------------------------ 
+DEBUG 29         0XAD374780 start dev3------------------------ 
+DEBUG 29         0XAD374780 start dev4------------------------ 
+DEBUG 32         0XAD374780 ---------------- /obj/cpuload0
+DEBUG 33         0XAD374780 22222222222222222 node_advertise px4_ioctl
+DEBUG 33         0XAD374780 px4_open
+DEBUG 33         0XAD374780 VDev::getDev
+DEBUG 34         0XAD374780 VDev::getDev nullptr
+DEBUG 35         0XAD374780 start dev1 ------------------------ 
+DEBUG 35         0XAD374780 start dev3------------------------ 
+DEBUG 35         0XAD374780 start dev4------------------------ 
+DEBUG 4          0XAD374780 ---------------- /obj/cpuload0
+DEBUG 94         0XAD374780 px4_open
+DEBUG 97         0XAD374780 VDev::getDev
+DEBUG 105        0XAD374780 VDev::getDev nullptr
+DEBUG 107        0XAD374780 start dev1 ------------------------ 
+DEBUG 109        0XAD374780 start dev3------------------------ 
+DEBUG 110        0XAD374780 start dev4------------------------ 
+DEBUG 121        0XAD374780 ---------------- /obj/cpuload0
+DEBUG 124        0XAD374780 22222222222222222 node_advertise px4_ioctl
+DEBUG 125        0XAD374780 px4_open
+DEBUG 126        0XAD374780 VDev::getDev
+DEBUG 132        0XAD374780 VDev::getDev nullptr
+DEBUG 133        0XAD374780 start dev1 ------------------------ 
+DEBUG 134        0XAD374780 start dev3------------------------ 
+DEBUG 135        0XAD374780 start dev4------------------------ 
+DEBUG 150        0XAD374780 11111111111111 orb_check px4_ioctl
+DEBUG 151        0XAD374780 px4_ioctl fd = -1
+
+TOPIC: cpuload #1
+timestamp: 0
+load: 0.000000
+ram_usage: 0.000000
+DEBUG 192        0XAD374780 11111111111111 orb_check px4_ioctl
+DEBUG 193        0XAD374780 px4_ioctl fd = -1
+Waited for 2 seconds without a message. Giving up.

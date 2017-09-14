@@ -257,7 +257,7 @@ hrt_abstime hrt_elapsed_time(const volatile hrt_abstime *then)
 }
 
 bool check_timeout(const hrt_abstime * time) {
-    if (hrt_elapsed_time(&time) > 2*1000*1000) {
+    if (hrt_elapsed_time(&time) > 2000*1000*1000) {
 		printf("Waited for 2 seconds without a message. Giving up.\n");
         return true;
     }
